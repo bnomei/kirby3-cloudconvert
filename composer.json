@@ -1,0 +1,38 @@
+{
+    "name": "bnomei/kirby3-cloudconvert",
+    "type": "plugin",
+    "version": "1.0.0",
+    "description": "Plugin to convert anything to anything using cloudconvert.",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "config.php"
+        ],
+        "psr-4": {
+            "Bnomei\\": "classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bruno Meilick",
+            "email": "b@bnomei.com"
+        }
+    ],
+    "repositories": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/k-next/kirby"
+        }
+      ],
+    "require": {
+        "cloudconvert/cloudconvert-php": "^2.2",
+        "getkirby/cms": "dev-master as 3.0.0"
+    },
+    "require-dev" : {
+    },
+    "scripts": {
+        "build": "composer update; composer dumpautoload -o;",
+        "zip": "rm kirby3-cloudconvert.zip; composer update; composer remove getkirby/cms; composer dumpautoload -o; zip -r kirby3-cloudconvert.zip . -x *.git*; composer require getkirby/cms:'dev-master as 3.0.0'; composer dumpautoload -o;"
+    },
+    "minimum-stability": "beta"
+}
