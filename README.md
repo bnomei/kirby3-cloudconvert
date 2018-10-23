@@ -81,7 +81,7 @@ return [
 
 ## Other Usecases
 
-### Example 3: convert ai tp svg and optimize
+### Example 3: convert ai to svg and optimize
 This example shows how to use this plugin with my [thumb imageoptim plugin](https://github.com/bnomei/kirby3-thumb-imageoptim).
 
 ```php
@@ -100,7 +100,7 @@ if($fileSvg) {
 }
 ```
 
-### Example 4: How to convert image files for srcsets? jpg to webm.
+### Example 4: How to convert image files for srcsets? jpg to webp.
 This example shows how to use this plugin with my [srcset plugin](https://github.com/bnomei/kirby3-srcset).
 
 **config file**
@@ -155,7 +155,7 @@ All settings have to be prefixed with `bnomei.cloudconvert.`.
 - default: `null` – your cloudconvert apikey
 
 **convert**
-- default: call to `Bnomei\Cloudconvert::convertWaitDownload()` for a synchronous conversion.
+- default: asynchronous or synchronous conversion depending on params.
 
 **async**
 - default: `true`
