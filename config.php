@@ -6,9 +6,9 @@ Kirby::plugin('bnomei/cloudconvert', [
         'apikey' => null,
         'convert' => function ($api, array $options, string $outputPath, bool $async) {
             if ($async) {
-                return \Bnomei\Cloudconvert::defaultConvertAsync($api, $options, $outputPath);
+                return \Bnomei\CloudConvert::defaultConvertAsync($api, $options, $outputPath);
             } else {
-                return \Bnomei\Cloudconvert::defaultConvert($api, $options, $outputPath);
+                return \Bnomei\CloudConvert::defaultConvert($api, $options, $outputPath);
             }
         },
         'async' => true,
@@ -31,7 +31,7 @@ Kirby::plugin('bnomei/cloudconvert', [
             if (!\Kirby\Toolkit\A::get($options, 'file')) {
                 $options['file'] = $this; // public url for download
             }
-            return \Bnomei\Cloudconvert::convert($options, $outputPath, $async);
+            return \Bnomei\CloudConvert::convert($options, $outputPath, $async);
         }
     ],
     'routes' => [
@@ -41,7 +41,7 @@ Kirby::plugin('bnomei/cloudconvert', [
                 $id = strip_tags(kirby()->request()->get('id'));
                 $url = strip_tags(urldecode(kirby()->request()->get('url')));
                 if ($id && $url) {
-                    if (\Bnomei\Cloudconvert::callback($id, $url)) {
+                    if (\Bnomei\CloudConvert::callback($id, $url)) {
                         return Kirby\Http\Response::json([], 200);
                     }
                 }
@@ -51,13 +51,13 @@ Kirby::plugin('bnomei/cloudconvert', [
     ]
 ]);
 
-if (!class_exists('Bnomei\Cloudconvert')) {
-    require_once __DIR__ . '/classes/cloudconvert.php';
+if (!class_exists('Bnomei\CloudConvert')) {
+    require_once __DIR__ . '/classes/CloudConvert.php';
 }
 
 if (!function_exists('cloudconvert')) {
     function cloudconvert(array $options, string $outputPath = null)
     {
-        return \Bnomei\Cloudconvert::convert($options, $outputPath);
+        return \Bnomei\CloudConvert::convert($options, $outputPath);
     }
 }

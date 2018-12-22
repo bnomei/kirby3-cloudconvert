@@ -1,9 +1,24 @@
 {
     "name": "bnomei/kirby3-cloudconvert",
     "type": "plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Plugin to convert anything to anything using cloudconvert.",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Meilick",
+            "email": "b@bnomei.com"
+        }
+    ],
+    "keywords": [
+        "kirby3",
+        "kirby3-cms",
+        "kirby3-plugin",
+        "convert",
+        "convert-images",
+        "anything",
+        "cloudconvert"
+    ],
     "autoload": {
         "files": [
             "config.php"
@@ -12,27 +27,32 @@
             "Bnomei\\": "classes/"
         }
     },
-    "authors": [
-        {
-            "name": "Bruno Meilick",
-            "email": "b@bnomei.com"
-        }
-    ],
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
     "repositories": [
         {
-          "type": "vcs",
-          "url": "https://github.com/k-next/kirby"
+            "type": "vcs",
+            "url": "https://github.com/k-next/kirby"
         }
-      ],
+    ],
     "require": {
+        "php": ">=7.1.0",
         "cloudconvert/cloudconvert-php": "^2.2",
-        "getkirby/cms": "dev-master as 3.0.0"
+        "getkirby/cms": "^3.0.0-RC-2.0"
     },
-    "require-dev" : {
+    "conflict": {
+        "getkirby/kirby": "<3.0"
     },
     "scripts": {
-        "build": "composer update; composer dumpautoload -o;",
-        "zip": "rm kirby3-cloudconvert.zip; composer update; composer remove getkirby/cms; composer dumpautoload -o; zip -r kirby3-cloudconvert.zip . -x *.git*; composer require getkirby/cms:'dev-master as 3.0.0'; composer dumpautoload -o;"
-    },
-    "minimum-stability": "beta"
+        "zip": [
+            "rm kirby3-cloudconvert.zip",
+            "composer install --no-dev",
+            "composer remove getkirby/cms",
+            "composer dumpautoload -o",
+            "zip -r kirby3-cloudconvert.zip . -x *.git*",
+            "composer require getkirby/cms:'^3.0.0-RC-2.0'"
+        ]
+    }
 }
