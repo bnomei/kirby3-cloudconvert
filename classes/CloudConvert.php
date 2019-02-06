@@ -20,6 +20,9 @@ class CloudConvert
     {
         $apikey = option('bnomei.cloudconvert.apikey');
         if ($apikey) {
+            if (is_callable($apikey)) {
+                $apikey = trim($apikey());
+            }
             try {
                 $instance = new Api($apikey);
                 return $instance;

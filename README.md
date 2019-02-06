@@ -163,7 +163,10 @@ $obj = cloudconvert($options, $outputPath, $async); // a/sync
 All settings have to be prefixed with `bnomei.cloudconvert.`.
 
 **apikey**
-- default: `null` – your cloudconvert apikey
+- default: `null` – your cloudconvert apikey as string
+
+> TIP: you can also set a callback if you use the [dotenv Plugin](https://github.com/bnomei/kirby3-dotenv)
+> `'bnomei.cloudconvert.apikey' => function() { return env('CLOUDCONVERT_APIKEY'); },`
 
 **convert**
 - default: asynchronous or synchronous conversion depending on params.
