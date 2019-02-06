@@ -104,7 +104,6 @@ class CloudConvert
 
             if (is_a($file, 'Kirby\Cms\File') && is_a($process, 'CloudConvert\Process')) {
                 $id = (string) trim($process->id);
-                \kirbyLog('bnomei.cloudconvert.log')->log('setcache ' . $id, 'info', $options);
                 static::cache()->set($id, $options);
             }
 
