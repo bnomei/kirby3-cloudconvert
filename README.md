@@ -1,6 +1,6 @@
 # Kirby 3 Cloudconvert
 
-![GitHub release](https://img.shields.io/github/release/bnomei/kirby3-cloudconvert.svg?maxAge=1800) ![License](https://img.shields.io/github/license/mashape/apistatus.svg) ![Kirby Version](https://img.shields.io/badge/Kirby-3%2B-black.svg) ![Kirby 3 Pluginkit](https://img.shields.io/badge/Pluginkit-YES-cca000.svg)
+![GitHub release](https://img.shields.io/github/release/bnomei/kirby3-cloudconvert.svg?maxAge=1800) ![License](https://img.shields.io/github/license/mashape/apistatus.svg) ![Kirby Version](https://img.shields.io/badge/Kirby-3-black.svg) ![Kirby 3 Pluginkit](https://img.shields.io/badge/Pluginkit-YES-cca000.svg) [![Build Status](https://travis-ci.com/bnomei/kirby3-cloudconvert.svg?branch=master)](https://travis-ci.com/bnomei/kirby3-cloudconvert) [![Coverage Status](https://coveralls.io/repos/github/bnomei/kirby3-cloudconvert/badge.svg?branch=master)](https://coveralls.io/github/bnomei/kirby3-cloudconvert?branch=master) [![Gitter](https://badges.gitter.im/bnomei-kirby-3-plugins/community.svg)](https://gitter.im/bnomei-kirby-3-plugins/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Plugin to convert anything to anything using [cloudconvert](https://cloudconvert.com/).
 

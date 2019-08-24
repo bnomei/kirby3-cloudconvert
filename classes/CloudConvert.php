@@ -4,11 +4,15 @@ namespace Bnomei;
 
 use \CloudConvert\Api as Api;
 use \CloudConvert\Process as Process;
+use Kirby\Cache\Cache;
+use Kirby\Http\Remote;
+use Kirby\Toolkit\A;
+use Kirby\Toolkit\F;
 
 class CloudConvert
 {
     private static $cache = null;
-    private static function cache(): \Kirby\Cache\Cache
+    private static function cache(): Cache
     {
         if (!static::$cache) {
             static::$cache = kirby()->cache('bnomei.cloudconvert');
@@ -50,12 +54,12 @@ class CloudConvert
             return null;
         }
 
-        if (\Kirby\Toolkit\A::get($options, 'input') == 'download' && self::isLocalhost()) {
+        if (A::get($options, 'input') == 'download' && self::isLocalhost()) {
             $options['input'] = 'upload';
         }
 
-        $file = \Kirby\Toolkit\A::get($options, 'file');
-        $input = \Kirby\Toolkit\A::get($options, 'input');
+        $file = A::get($options, 'file');
+        $input = A::get($options, 'input');
 
         if (is_a($file, 'Kirby\Cms\File')) {
             $page = $file->parent();
@@ -77,7 +81,7 @@ class CloudConvert
 
             // TODO: not just file exists. check if a process for this file is issues.
             // that also means done process caches must be removed. but think about deadlock.
-            } elseif (\Kirby\Toolkit\F::exists($outputPath)) {
+            } elseif (F::exists($outputPath)) {
                 return $page->file(basename($outputPath));
             }
 
@@ -91,15 +95,15 @@ class CloudConvert
             if (!$outputPath) {
                 return null;
             }
-            return \Kirby\Toolkit\F::exists($outputPath);
+            return F::exists($outputPath);
         }
 
         if (is_callable($convert)) {
-            $a = \Kirby\Toolkit\F::filename($outputPath);
-            $b = md5($outputPath) . '.' . \Kirby\Toolkit\F::extension($outputPath);
+            $a = F::filename($outputPath);
+            $b = md5($outputPath) . '.' . F::extension($outputPath);
             $options['kirby.outputPath'] = $outputPath;
             $options['kirby.tmp'] = str_replace($a, $b, $outputPath);
-    
+
             $process = $convert($api, $options, $outputPath, $async);
 
             if (is_a($file, 'Kirby\Cms\File') && is_a($process, 'CloudConvert\Process')) {
@@ -116,7 +120,7 @@ class CloudConvert
 
     public static function defaultConvert($api, array $options, string $outputPath)
     {
-        $tmp = \Kirby\Toolkit\A::get($options, 'kirby.tmp', $outputPath);
+        $tmp = A::get($options, 'kirby.tmp', $outputPath);
         $api->convert($options)
             ->wait()
             ->download($tmp);
@@ -129,14 +133,14 @@ class CloudConvert
         $options['callback'] = kirby()->site()->url() . '/plugin-cloudconvert';
 
         $process = $api->createProcess([
-            'inputformat' => \Kirby\Toolkit\A::get($options, 'inputformat'),
-            'outputformat' => \Kirby\Toolkit\A::get($options, 'outputformat'),
+            'inputformat' => A::get($options, 'inputformat'),
+            'outputformat' => A::get($options, 'outputformat'),
             'mode' => 'convert',
         ]);
         $process->start($options);
 
-        if (\Kirby\Toolkit\A::get($options, 'input') == 'upload') {
-            $process->upload(\Kirby\Toolkit\A::get($options, 'file'));
+        if (A::get($options, 'input') == 'upload') {
+            $process->upload(A::get($options, 'file'));
         }
 
         return $process;
@@ -144,9 +148,9 @@ class CloudConvert
 
     private static function createFile(array $options, string $outputPath)
     {
-        if ($uid = \Kirby\Toolkit\A::get($options, 'kirby.page')) {
+        if ($uid = A::get($options, 'kirby.page')) {
             if ($page = page($uid)) {
-                $tmp = \Kirby\Toolkit\A::get($options, 'kirby.tmp', $outputPath);
+                $tmp = A::get($options, 'kirby.tmp', $outputPath);
                 try {
                     kirby()->impersonate('kirby');
                     $file = $page->createFile([
@@ -156,7 +160,7 @@ class CloudConvert
                     kirby()->impersonate();
                 } catch (Exception $ex) {
                 } finally {
-                    \Kirby\Toolkit\F::remove($tmp);
+                    F::remove($tmp);
                 }
                 return $file;
             }
@@ -167,15 +171,15 @@ class CloudConvert
     public static function callback(string $id, string $url)
     {
         if ($options = static::cache()->get($id)) {
-            $status = json_decode(\Kirby\Http\Remote::get('http:' . $url)->content(), true);
-            if ($output = \Kirby\Toolkit\A::get($status, 'output')) {
-                if ($download = \Kirby\Toolkit\A::get($output, 'url')) {
+            $status = json_decode(Remote::get('http:' . $url)->content(), true);
+            if ($output = A::get($status, 'output')) {
+                if ($download = A::get($output, 'url')) {
                     $download = 'http:' . $download;
-                    $data = \Kirby\Http\Remote::get($download)->content();
-                    $outputPath = \Kirby\Toolkit\A::get($options, 'kirby.outputPath');
-                    $tmp = \Kirby\Toolkit\A::get($options, 'kirby.tmp', $outputPath);
+                    $data = Remote::get($download)->content();
+                    $outputPath = A::get($options, 'kirby.outputPath');
+                    $tmp = A::get($options, 'kirby.tmp', $outputPath);
                     if ($data && $outputPath) {
-                        \Kirby\Toolkit\F::write($tmp, $data);
+                        F::write($tmp, $data);
                         return self::createFile($options, $outputPath) != null;
                     }
                 }
