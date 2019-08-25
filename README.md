@@ -25,19 +25,6 @@ This plugin is free but if you use it in a commercial project please consider to
 - `git submodule add https://github.com/bnomei/kirby3-cloudconvert.git site/plugins/kirby3-cloudconvert` or
 - `composer require bnomei/kirby3-cloudconvert`
 
-## Performance
-
-**TD;DR**
-Calling File-Method is performant since it only converts the file if it was modified or new.
-
-### File-Object
-Using `Kirby\Cms\File` object for `$options['file']` is recommended. In that case the modified timestamp will be checked against a cached value and a conversion triggered only if a file was modified or output does not exist. This is the default behaviour for the FileMethod provided by this plugin.
-
-> DANGER: There is no check (yet) if a file is currently processed by cloudconvert. This might be improved at a later point.
-
-### Path
-When a path is used then file will be created only if ouput does not exist. You need to do modification checks and removing of old files yourself before starting the conversion.
-
 ## How to convert files on demand (synchronously)?
 
 ### Example 1: docx to pdf
@@ -166,39 +153,34 @@ $obj = cloudconvert($options, $outputPath, $async); // a/sync
 - otherwise it returns an instance of `CloudConvert\Process`
 - or `null` on error
 
+## Performance
+
+**TD;DR**
+Calling File-Method has best performance since it only converts the file if it was modified or is new.
+
+### File-Object
+Using `Kirby\Cms\File` object for `$options['file']` is recommended. In that case the modified timestamp will be checked against a cached value and a conversion triggered only if a file was modified or output does not exist. This is the default behaviour for the FileMethod provided by this plugin.
+
+> DANGER: There is no check (yet) if a file is currently processed by cloudconvert. This might be improved at a later point.
+
+### Path
+When a path is used then file will be created only if ouput does not exist. You need to do modification checks and removing of old files yourself before starting the conversion.
+
 ## Settings
 
-All settings have to be prefixed with `bnomei.cloudconvert.`.
-
-**apikey**
-- default: `null` – your cloudconvert apikey as string
+| bnomei.cloudconvert.      | Default        | Description               |            
+|---------------------------|----------------|---------------------------|
+| apikey | `null` | your cloudconvert apikey as string |
+| convert | `callback` | asynchronous or synchronous conversion depending on params. |
+| async | `true` | |
+| options | `['input' => 'download']` | By default this plugin requires the file to be public otherwise use `upload` here. On localhost `upload` is used as a default. |
+| log.enabled | `false` | |
+| log | `callback` | to `kirbyLog()` |
 
 > TIP: you can also set a callback if you use the [dotenv Plugin](https://github.com/bnomei/kirby3-dotenv)
 > `'bnomei.cloudconvert.apikey' => function() { return env('CLOUDCONVERT_APIKEY'); },`
 
-**convert**
-- default: asynchronous or synchronous conversion depending on params.
-
-**async**
-- default: `true`
-
-**options**
-- default: By default this plugin requires the file to be public otherwise use `upload` here. On localhost `upload` is used as a default.
-
-```php
-[
-    'input' => 'download', // but automatically uses 'upload' on localhost
-]
-```
-
 > TIP: consider setting up [presets](https://cloudconvert.com/presets) to manage your settings from within the cloudconvert dashboard instead of the Kirby config file.
-
-**log.enabled**
-- default: `false`
-
-**log**
-- default: callback to `kirbyLog()`
-
 
 ## Disclaimer
 
