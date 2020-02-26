@@ -98,7 +98,7 @@ class CloudConvert
             return F::exists($outputPath);
         }
 
-        if (is_callable($convert)) {
+        if (!is_string($convert) && is_callable($convert)) {
             $a = F::filename($outputPath);
             $b = md5($outputPath) . '.' . F::extension($outputPath);
             $options['kirby.outputPath'] = $outputPath;
