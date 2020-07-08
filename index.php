@@ -19,7 +19,7 @@ Kirby::plugin('bnomei/cloudconvert', [
             // 'save' => true,
         ],
         'log.enabled' => false,
-        'log' => function (string $msg, string $level = 'info', array $context = []):bool {
+        'log.fn' => function (string $msg, string $level = 'info', array $context = []):bool {
             if (option('bnomei.cloudconvert.log.enabled') && function_exists('kirbyLog')) {
                 kirbyLog('bnomei.cloudconvert.log')->log($msg, $level, $context);
                 return true;

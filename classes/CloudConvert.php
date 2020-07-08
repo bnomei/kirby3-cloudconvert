@@ -195,7 +195,7 @@ class CloudConvert
 
     private static function log(string $msg = '', string $level = 'info', array $context = []):bool
     {
-        $log = option('bnomei.cloudconvert.log');
+        $log = option('bnomei.cloudconvert.log.fn');
         if ($log && is_callable($log)) {
             if (!option('debug') && $level == 'debug') {
                 // skip but...
