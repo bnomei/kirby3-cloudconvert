@@ -1,207 +1,203 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => '1.1.8',
-    'version' => '1.1.8.0',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'name' => 'bnomei/kirby3-cloudconvert',
+        'pretty_version' => '1.1.9',
+        'version' => '1.1.9.0',
+        'reference' => NULL,
+        'type' => 'kirby-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
     ),
-    'reference' => NULL,
-    'name' => 'bnomei/kirby3-cloudconvert',
-  ),
-  'versions' => 
-  array (
-    'bnomei/kirby3-cloudconvert' => 
-    array (
-      'pretty_version' => '1.1.8',
-      'version' => '1.1.8.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => NULL,
+    'versions' => array(
+        'bnomei/kirby3-cloudconvert' => array(
+            'pretty_version' => '1.1.9',
+            'version' => '1.1.9.0',
+            'reference' => NULL,
+            'type' => 'kirby-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'claviska/simpleimage' => array(
+            'pretty_version' => '3.6.5',
+            'version' => '3.6.5.0',
+            'reference' => '00f90662686696b9b7157dbb176183aabe89700f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../claviska/simpleimage',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'cloudconvert/cloudconvert-php' => array(
+            'pretty_version' => '2.2.1',
+            'version' => '2.2.1.0',
+            'reference' => 'f417a751eeb4ecda0ee367222752a20286052442',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cloudconvert/cloudconvert-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'filp/whoops' => array(
+            'pretty_version' => '2.14.5',
+            'version' => '2.14.5.0',
+            'reference' => 'a63e5e8f26ebbebf8ed3c5c691637325512eb0dc',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../filp/whoops',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'getkirby/cms' => array(
+            'pretty_version' => '3.6.6',
+            'version' => '3.6.6.0',
+            'reference' => '005fc78fcc0e7f99f61e6973efa8ea8ec85741d9',
+            'type' => 'kirby-cms',
+            'install_path' => __DIR__ . '/../../tests/kirby',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'getkirby/composer-installer' => array(
+            'pretty_version' => '1.2.1',
+            'version' => '1.2.1.0',
+            'reference' => 'c98ece30bfba45be7ce457e1102d1b169d922f3d',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../getkirby/composer-installer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'guzzlehttp/guzzle' => array(
+            'pretty_version' => '6.5.7',
+            'version' => '6.5.7.0',
+            'reference' => '724562fa861e21a4071c652c8a159934e4f05592',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/guzzle',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'guzzlehttp/promises' => array(
+            'pretty_version' => '1.5.1',
+            'version' => '1.5.1.0',
+            'reference' => 'fe752aedc9fd8fcca3fe7ad05d419d32998a06da',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/promises',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'guzzlehttp/psr7' => array(
+            'pretty_version' => '1.8.5',
+            'version' => '1.8.5.0',
+            'reference' => '337e3ad8e5716c15f9657bd214d16cc5e69df268',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'laminas/laminas-escaper' => array(
+            'pretty_version' => '2.10.0',
+            'version' => '2.10.0.0',
+            'reference' => '58af67282db37d24e584a837a94ee55b9c7552be',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-escaper',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'league/color-extractor' => array(
+            'pretty_version' => '0.3.2',
+            'version' => '0.3.2.0',
+            'reference' => '837086ec60f50c84c611c613963e4ad2e2aec806',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../league/color-extractor',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'matthecat/colorextractor' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'michelf/php-smartypants' => array(
+            'pretty_version' => '1.8.1',
+            'version' => '1.8.1.0',
+            'reference' => '47d17c90a4dfd0ccf1f87e25c65e6c8012415aad',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../michelf/php-smartypants',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.4',
+            'version' => '6.5.4.0',
+            'reference' => 'c0d9f7dd3c2aa247ca44791e9209233829d82285',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'psr/http-message' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
+            'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/http-message',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'psr/http-message-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
+        'psr/log' => array(
+            'pretty_version' => '1.1.4',
+            'version' => '1.1.4.0',
+            'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/log',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'ralouphie/getallheaders' => array(
+            'pretty_version' => '3.0.3',
+            'version' => '3.0.3.0',
+            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-intl-idn' => array(
+            'pretty_version' => 'v1.25.0',
+            'version' => '1.25.0.0',
+            'reference' => '749045c69efb97c70d25d7463abba812e91f3a44',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-intl-idn',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-intl-normalizer' => array(
+            'pretty_version' => 'v1.26.0',
+            'version' => '1.26.0.0',
+            'reference' => '219aa369ceff116e673852dce47c3a41794c14bd',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-intl-normalizer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-mbstring' => array(
+            'pretty_version' => 'v1.25.0',
+            'version' => '1.25.0.0',
+            'reference' => '0abb51d2f102e00a4eefcf46ba7fec406d245825',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-php72' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
     ),
-    'claviska/simpleimage' => 
-    array (
-      'pretty_version' => '3.6.5',
-      'version' => '3.6.5.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '00f90662686696b9b7157dbb176183aabe89700f',
-    ),
-    'cloudconvert/cloudconvert-php' => 
-    array (
-      'pretty_version' => '2.2.1',
-      'version' => '2.2.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'f417a751eeb4ecda0ee367222752a20286052442',
-    ),
-    'filp/whoops' => 
-    array (
-      'pretty_version' => '2.14.5',
-      'version' => '2.14.5.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'a63e5e8f26ebbebf8ed3c5c691637325512eb0dc',
-    ),
-    'getkirby/cms' => 
-    array (
-      'pretty_version' => '3.6.2',
-      'version' => '3.6.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '04127160ed1ab8dc277763cd8ba4ebc5a097bc18',
-    ),
-    'getkirby/composer-installer' => 
-    array (
-      'pretty_version' => '1.2.1',
-      'version' => '1.2.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'c98ece30bfba45be7ce457e1102d1b169d922f3d',
-    ),
-    'guzzlehttp/guzzle' => 
-    array (
-      'pretty_version' => '6.5.5',
-      'version' => '6.5.5.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '9d4290de1cfd701f38099ef7e183b64b4b7b0c5e',
-    ),
-    'guzzlehttp/promises' => 
-    array (
-      'pretty_version' => '1.5.1',
-      'version' => '1.5.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'fe752aedc9fd8fcca3fe7ad05d419d32998a06da',
-    ),
-    'guzzlehttp/psr7' => 
-    array (
-      'pretty_version' => '1.8.3',
-      'version' => '1.8.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '1afdd860a2566ed3c2b0b4a3de6e23434a79ec85',
-    ),
-    'laminas/laminas-escaper' => 
-    array (
-      'pretty_version' => '2.9.0',
-      'version' => '2.9.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '891ad70986729e20ed2e86355fcf93c9dc238a5f',
-    ),
-    'league/color-extractor' => 
-    array (
-      'pretty_version' => '0.3.2',
-      'version' => '0.3.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '837086ec60f50c84c611c613963e4ad2e2aec806',
-    ),
-    'matthecat/colorextractor' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'michelf/php-smartypants' => 
-    array (
-      'pretty_version' => '1.8.1',
-      'version' => '1.8.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '47d17c90a4dfd0ccf1f87e25c65e6c8012415aad',
-    ),
-    'phpmailer/phpmailer' => 
-    array (
-      'pretty_version' => 'v6.5.3',
-      'version' => '6.5.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'baeb7cde6b60b1286912690ab0693c7789a31e71',
-    ),
-    'psr/http-message' => 
-    array (
-      'pretty_version' => '1.0.1',
-      'version' => '1.0.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
-    ),
-    'psr/http-message-implementation' => 
-    array (
-      'provided' => 
-      array (
-        0 => '1.0',
-      ),
-    ),
-    'psr/log' => 
-    array (
-      'pretty_version' => '1.1.4',
-      'version' => '1.1.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
-    ),
-    'ralouphie/getallheaders' => 
-    array (
-      'pretty_version' => '3.0.3',
-      'version' => '3.0.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '120b605dfeb996808c31b6477290a714d356e822',
-    ),
-    'symfony/polyfill-intl-idn' => 
-    array (
-      'pretty_version' => 'v1.24.0',
-      'version' => '1.24.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '749045c69efb97c70d25d7463abba812e91f3a44',
-    ),
-    'symfony/polyfill-intl-normalizer' => 
-    array (
-      'pretty_version' => 'v1.24.0',
-      'version' => '1.24.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8590a5f561694770bdcd3f9b5c69dde6945028e8',
-    ),
-    'symfony/polyfill-mbstring' => 
-    array (
-      'pretty_version' => 'v1.24.0',
-      'version' => '1.24.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '0abb51d2f102e00a4eefcf46ba7fec406d245825',
-    ),
-    'symfony/polyfill-php72' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-  ),
 );
