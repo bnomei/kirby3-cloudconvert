@@ -3,11 +3,10 @@
 namespace Bnomei;
 
 use \CloudConvert\Api as Api;
-use \CloudConvert\Process as Process;
 use Kirby\Cache\Cache;
+use Kirby\Filesystem\F;
 use Kirby\Http\Remote;
 use Kirby\Toolkit\A;
-use Kirby\Toolkit\F;
 
 class CloudConvert
 {
@@ -30,7 +29,7 @@ class CloudConvert
             try {
                 $instance = new Api($apikey);
                 return $instance;
-            } catch (Exception $ex) {
+            } catch (\Exception $ex) {
                 self::log($ex->getMessage(), 'error');
             }
         } else {
@@ -158,7 +157,7 @@ class CloudConvert
                         'source' => $tmp,
                     ]);
                     kirby()->impersonate();
-                } catch (Exception $ex) {
+                } catch (\Exception $ex) {
                 } finally {
                     F::remove($tmp);
                 }

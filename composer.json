@@ -1,7 +1,7 @@
 {
   "name": "bnomei/kirby3-cloudconvert",
   "type": "kirby-plugin",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Plugin to convert anything to anything using cloudconvert.",
   "license": "MIT",
   "authors": [
@@ -32,13 +32,13 @@
     }
   },
   "require": {
-    "php": ">=7.2.0",
+    "php": ">=8.0",
     "cloudconvert/cloudconvert-php": "^2.2",
     "getkirby/composer-installer": "^1.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^8.3",
-    "getkirby/cms": "^3.2",
+    "getkirby/cms": "^3.8",
     "php-coveralls/php-coveralls": "^2.1"
   },
   "scripts": {
